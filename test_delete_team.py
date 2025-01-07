@@ -49,7 +49,10 @@ def test_delete_team(page):
     page.goto("/")
     page.goto("/employees")
     # click on edit button for employe name 
-    page.click(f"td:has-text('{employee_name}') + td button")
+    employee_row = page.locator('tr', has_text=employee_name)
+    edit_button = employee_row.locator('button', has_text="Edit")
+    edit_button.click()
+
     # click on edit button same row
 
     
